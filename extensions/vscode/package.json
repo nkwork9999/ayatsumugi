@@ -8,6 +8,12 @@
   "repository": { "type": "git", "url": "https://github.com/nkwork9999/ayatsumugi.git" },
   "homepage": "https://github.com/nkwork9999/ayatsumugi#readme",
   "bugs": "https://github.com/nkwork9999/ayatsumugi/issues",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "media",
+    "src"
+  ],
   "engines": {
     "vscode": "^1.90.0",
     "node": ">=20"
