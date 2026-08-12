@@ -1,0 +1,8 @@
+Ayatsumugi
+Copyright 2026 Ayatsumugi contributors
+
+The Apache-2.0 license in this repository applies only to the public editor
+shell, protocol, documentation, and UI source stored in this repository.
+Ayatori Core and Tsumugi DevTools Core are separate works and are not licensed
+under Apache-2.0 merely because Ayatsumugi can communicate with them.
+

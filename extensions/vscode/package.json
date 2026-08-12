@@ -1,0 +1,59 @@
+{
+  "name": "ayatsumugi-vscode",
+  "displayName": "Ayatsumugi",
+  "description": "Unified React DOM, state, query, and mutation visualization",
+  "version": "0.1.0",
+  "publisher": "ayatsumugi",
+  "engines": {
+    "vscode": "^1.90.0",
+    "node": ">=20"
+  },
+  "categories": ["Visualization", "Linters"],
+  "activationEvents": [
+    "onView:ayatsumugi.sidebar",
+    "onCommand:ayatsumugi.open",
+    "onCommand:ayatsumugi.refresh"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "ayatsumugi.open", "title": "Ayatsumugi: Open Unified View" },
+      { "command": "ayatsumugi.refresh", "title": "Ayatsumugi: Refresh Both Cores" }
+    ],
+    "configuration": {
+      "title": "Ayatsumugi",
+      "properties": {
+        "ayatsumugi.language": {
+          "type": "string",
+          "enum": ["en", "ja"],
+          "default": "en",
+          "description": "Display language / 表示言語"
+        },
+        "ayatsumugi.ayatoriCorePath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the separately licensed Ayatori Core executable"
+        },
+        "ayatsumugi.tsumugiCorePath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the separately licensed Tsumugi DevTools Core executable"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        { "id": "ayatsumugi", "title": "Ayatsumugi", "icon": "media/ayatsumugi.svg" }
+      ]
+    },
+    "views": {
+      "ayatsumugi": [
+        { "type": "webview", "id": "ayatsumugi.sidebar", "name": "Runtime Map" }
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
+

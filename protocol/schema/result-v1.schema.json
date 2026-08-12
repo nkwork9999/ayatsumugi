@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ayatsumugi.dev/schema/result-v1.schema.json",
+  "title": "Ayatsumugi result envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocolVersion", "source", "status", "nodes", "edges", "diagnostics"],
+  "properties": {
+    "protocolVersion": { "const": 1 },
+    "source": { "enum": ["ayatori", "tsumugi"] },
+    "status": { "enum": ["ready", "findings", "indeterminate", "disconnected"] },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "kind", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "kind"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "kind": { "type": "string" }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": { "type": "string" },
+          "severity": { "enum": ["info", "warning", "error"] },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

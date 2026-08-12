@@ -1,0 +1,8 @@
+{
+  "name": "@ayatsumugi/react",
+  "version": "0.0.0-private",
+  "private": true,
+  "description": "Reserved public React adapter boundary for the private Tsumugi Wasm core",
+  "license": "Apache-2.0",
+  "files": ["src", "README.md"]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ayatsumugi-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "extensions/vscode",
+    "packages/sdk",
+    "packages/react"
+  ],
+  "scripts": {
+    "test": "npm test --workspace extensions/vscode && npm test --workspace packages/sdk && node scripts/check-public-boundary.mjs",
+    "check:boundary": "node scripts/check-public-boundary.mjs",
+    "check": "npm test"
+  }
+}

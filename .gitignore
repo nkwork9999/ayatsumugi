@@ -1,0 +1,10 @@
+node_modules/
+*.vsix
+target/
+.DS_Store
+.env
+.env.*
+!.env.example
+dist/
+coverage/
+

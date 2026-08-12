@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Ayatsumugi: Open unified report",
+    "command": "ayatsumugi report --open --workspace '$ZED_WORKTREE_ROOT'",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Ayatsumugi: Check both cores",
+    "command": "ayatsumugi doctor --both",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
+

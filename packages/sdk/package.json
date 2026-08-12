@@ -1,0 +1,15 @@
+{
+  "name": "@ayatsumugi/sdk",
+  "version": "0.1.0",
+  "description": "Public protocol helpers for Ayatsumugi clients",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": ["src", "README.md"],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
