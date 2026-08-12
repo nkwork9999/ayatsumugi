@@ -10,13 +10,10 @@ impl zed::Extension for AyatsumugiExtension {
     fn context_server_command(
         &mut self,
         _context_server_id: &zed::ContextServerId,
-        project: &zed::Project,
+        _project: &zed::Project,
     ) -> zed::Result<zed::Command> {
-        let command = project
-            .which("ayatsumugi-mcp")
-            .ok_or_else(|| "ayatsumugi-mcp was not found in PATH".to_string())?;
         Ok(zed::Command {
-            command,
+            command: "ayatsumugi-mcp".to_string(),
             args: vec!["serve".to_string(), "--stdio".to_string()],
             env: Vec::new(),
         })
@@ -24,4 +21,3 @@ impl zed::Extension for AyatsumugiExtension {
 }
 
 zed::register_extension!(AyatsumugiExtension);
-

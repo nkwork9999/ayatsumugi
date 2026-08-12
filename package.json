@@ -11,7 +11,8 @@
     "packages/react"
   ],
   "scripts": {
-    "test": "npm test --workspace extensions/vscode && npm test --workspace packages/sdk && node scripts/check-public-boundary.mjs",
+    "test": "npm test --workspace extensions/vscode && npm test --workspace packages/sdk && npm test --workspace packages/react && npm run check:zed && node scripts/check-public-boundary.mjs",
+    "check:zed": "cargo check --locked --manifest-path extensions/zed/Cargo.toml",
     "check:boundary": "node scripts/check-public-boundary.mjs",
     "check": "npm test"
   }

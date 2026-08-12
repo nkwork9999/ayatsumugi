@@ -25,10 +25,11 @@ function validateEnvelope(source, value) {
   return value;
 }
 
-async function snapshotCore(source, executable, run = execFileAsync) {
+async function snapshotCore(source, executable, inputPath, run = execFileAsync) {
   if (!executable) return disconnected(source, `${source} core was not found`);
+  if (!inputPath) return disconnected(source, `${source} input is not configured`);
   try {
-    const { stdout } = await run(executable, ['snapshot', '--format', 'ayatsumugi-v1'], {
+    const { stdout } = await run(executable, ['snapshot', '--source', source, '--input', inputPath, '--format', 'ayatsumugi-v1'], {
       encoding: 'utf8',
       timeout: 15000,
       maxBuffer: 8 * 1024 * 1024,
@@ -41,4 +42,3 @@ async function snapshotCore(source, executable, run = execFileAsync) {
 }
 
 module.exports = { disconnected, snapshotCore, validateEnvelope };
-

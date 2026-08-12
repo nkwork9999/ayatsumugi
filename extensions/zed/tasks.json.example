@@ -1,17 +1,16 @@
 [
   {
     "label": "Ayatsumugi: Open unified report",
-    "command": "ayatsumugi report --open --workspace '$ZED_WORKTREE_ROOT'",
+    "command": "ayatsumugi-mcp snapshot --source ayatori --input '$ZED_FILE' --format ayatsumugi-v1",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
   },
   {
-    "label": "Ayatsumugi: Check both cores",
-    "command": "ayatsumugi doctor --both",
+    "label": "Ayatsumugi: Sidecar version",
+    "command": "ayatsumugi-mcp version --json",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
   }
 ]
-

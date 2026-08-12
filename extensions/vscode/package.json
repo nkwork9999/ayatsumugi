@@ -29,15 +29,20 @@
           "default": "en",
           "description": "Display language / 表示言語"
         },
-        "ayatsumugi.ayatoriCorePath": {
+        "ayatsumugi.sidecarPath": {
           "type": "string",
           "default": "",
-          "description": "Absolute path to the separately licensed Ayatori Core executable"
+          "description": "Absolute path to the separately licensed ayatsumugi-mcp executable"
         },
-        "ayatsumugi.tsumugiCorePath": {
+        "ayatsumugi.ayatoriInputPath": {
           "type": "string",
           "default": "",
-          "description": "Absolute path to the separately licensed Tsumugi DevTools Core executable"
+          "description": "Absolute path to an Ayatori runtime trace (.jsonl)"
+        },
+        "ayatsumugi.tsumugiInputPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to a Tsumugi snapshot (.json)"
         }
       }
     },
@@ -56,4 +61,3 @@
     "test": "node --test test/*.test.js"
   }
 }
-

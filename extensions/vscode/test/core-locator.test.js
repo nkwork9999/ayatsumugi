@@ -3,19 +3,14 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
-const { locateCore } = require('../src/core-locator');
+const { locateSidecar } = require('../src/core-locator');
 
-test('configured absolute core path has priority', () => {
-  const file = path.resolve('/opt/ayatsumugi/ayatori-core');
-  assert.equal(locateCore('ayatori', { configured: file, exists: value => value === file, env: {} }), file);
+test('configured absolute sidecar path has priority', () => {
+  const file = path.resolve('/opt/ayatsumugi/ayatsumugi-mcp');
+  assert.equal(locateSidecar({ configured: file, exists: value => value === file, env: {} }), file);
 });
 
-test('Tsumugi and Ayatori use separate environment variables', () => {
-  const ayatori = path.resolve('/cores/ayatori');
-  const tsumugi = path.resolve('/cores/tsumugi');
-  const env = { AYATORI_CORE_BIN: ayatori, TSUMUGI_CORE_BIN: tsumugi };
-  const exists = value => value === ayatori || value === tsumugi;
-  assert.equal(locateCore('ayatori', { env, exists }), ayatori);
-  assert.equal(locateCore('tsumugi', { env, exists }), tsumugi);
+test('sidecar uses one environment variable for both products', () => {
+  const file = path.resolve('/cores/ayatsumugi-mcp');
+  assert.equal(locateSidecar({ env: { AYATSUMUGI_MCP_BIN: file }, exists: value => value === file }), file);
 });
-

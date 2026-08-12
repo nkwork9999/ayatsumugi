@@ -2,7 +2,7 @@
 
 const vscode = require('vscode');
 const crypto = require('node:crypto');
-const { locateCore } = require('./core-locator');
+const { locateSidecar } = require('./core-locator');
 const { snapshotCore } = require('./core-runner');
 const { buildHtml } = require('./view');
 
@@ -10,9 +10,11 @@ function configuration() { return vscode.workspace.getConfiguration('ayatsumugi'
 
 async function snapshots() {
   const config = configuration();
-  const ayatori = locateCore('ayatori', { configured: config.get('ayatoriCorePath', '') });
-  const tsumugi = locateCore('tsumugi', { configured: config.get('tsumugiCorePath', '') });
-  return Promise.all([snapshotCore('ayatori', ayatori), snapshotCore('tsumugi', tsumugi)]);
+  const sidecar = locateSidecar({ configured: config.get('sidecarPath', '') });
+  return Promise.all([
+    snapshotCore('ayatori', sidecar, config.get('ayatoriInputPath', '')),
+    snapshotCore('tsumugi', sidecar, config.get('tsumugiInputPath', '')),
+  ]);
 }
 
 async function render(webview) {
@@ -46,4 +48,3 @@ function activate(context) {
 
 function deactivate() {}
 module.exports = { activate, deactivate };
-

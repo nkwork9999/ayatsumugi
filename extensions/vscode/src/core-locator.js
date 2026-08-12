@@ -3,18 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const CORE_SPECS = Object.freeze({
-  ayatori: {
-    setting: 'ayatoriCorePath',
-    env: 'AYATORI_CORE_BIN',
-    commands: ['ayatori-core', 'ayatori'],
-  },
-  tsumugi: {
-    setting: 'tsumugiCorePath',
-    env: 'TSUMUGI_CORE_BIN',
-    commands: ['tsumugi-devtools-core', 'tsumugi-core'],
-  },
-});
+const SIDECAR_SPEC = Object.freeze({ setting: 'sidecarPath', env: 'AYATSUMUGI_MCP_BIN', commands: ['ayatsumugi-mcp'] });
 
 function executableNames(name, platform = process.platform) {
   return platform === 'win32' ? [`${name}.exe`, `${name}.cmd`, name] : [name];
@@ -24,9 +13,8 @@ function usable(file, exists = fs.existsSync) {
   return Boolean(file && path.isAbsolute(file) && exists(file));
 }
 
-function locateCore(source, options = {}) {
-  const spec = CORE_SPECS[source];
-  if (!spec) throw new Error(`Unknown core source: ${source}`);
+function locateSidecar(options = {}) {
+  const spec = SIDECAR_SPEC;
   const exists = options.exists || fs.existsSync;
   const configured = options.configured || '';
   const env = options.env || process.env;
@@ -45,5 +33,4 @@ function locateCore(source, options = {}) {
   return null;
 }
 
-module.exports = { CORE_SPECS, locateCore };
-
+module.exports = { SIDECAR_SPEC, locateSidecar };

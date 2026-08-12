@@ -1,8 +1,12 @@
 {
   "name": "@ayatsumugi/react",
-  "version": "0.0.0-private",
-  "private": true,
-  "description": "Reserved public React adapter boundary for the private Tsumugi Wasm core",
+  "version": "0.1.0",
+  "description": "React DOM and state graph visualization for Ayatsumugi envelopes",
+  "main": "src/index.js",
+  "exports": { ".": "./src/index.js", "./styles.css": "./src/styles.css" },
   "license": "Apache-2.0",
-  "files": ["src", "README.md"]
+  "files": ["src", "README.md"],
+  "peerDependencies": { "react": ">=18" },
+  "peerDependenciesMeta": { "react": { "optional": true } },
+  "scripts": { "test": "node --test test/*.test.js" }
 }
