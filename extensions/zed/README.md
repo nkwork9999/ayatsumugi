@@ -2,7 +2,7 @@
 
 This is a real Zed extension scaffold that launches the separately distributed
 `ayatsumugi-mcp` sidecar in the Agent Panel. Snapshot tasks print the versioned
-Ayatsumugi envelope in Zed's terminal; use VS Code or `@ayatsumugi/react` for the
+Ayatsumugi envelope in Zed's terminal; use VS Code or `@noobknotsdev/ayatsumugi-react` for the
 interactive three-pane graph.
 
 Install this directory with **Zed: Install Dev Extension**. Install the signed

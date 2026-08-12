@@ -4,7 +4,6 @@ version = "0.1.0"
 schema_version = 1
 authors = ["Ayatsumugi contributors"]
 description = "Connect Zed to the Ayatsumugi runtime inspection sidecar"
-repository = "https://github.com/ayatsumugi/ayatsumugi"
+repository = "https://github.com/nkwork9999/ayatsumugi-zed"
 
 [context_servers.ayatsumugi]
-

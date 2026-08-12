@@ -1,11 +1,15 @@
 {
-  "name": "@ayatsumugi/react",
+  "name": "@noobknotsdev/ayatsumugi-react",
   "version": "0.1.0",
   "description": "React DOM and state graph visualization for Ayatsumugi envelopes",
   "main": "src/index.js",
   "exports": { ".": "./src/index.js", "./styles.css": "./src/styles.css" },
   "license": "Apache-2.0",
   "files": ["src", "README.md"],
+  "repository": { "type": "git", "url": "git+https://github.com/nkwork9999/ayatsumugi.git", "directory": "packages/react" },
+  "homepage": "https://github.com/nkwork9999/ayatsumugi#readme",
+  "bugs": "https://github.com/nkwork9999/ayatsumugi/issues",
+  "publishConfig": { "access": "public" },
   "peerDependencies": { "react": ">=18" },
   "peerDependenciesMeta": { "react": { "optional": true } },
   "scripts": { "test": "node --test test/*.test.js" }

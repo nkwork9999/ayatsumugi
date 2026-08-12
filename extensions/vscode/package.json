@@ -3,7 +3,11 @@
   "displayName": "Ayatsumugi",
   "description": "Unified React DOM, state, query, and mutation visualization",
   "version": "0.1.0",
-  "publisher": "ayatsumugi",
+  "publisher": "nkwork9999",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "https://github.com/nkwork9999/ayatsumugi.git" },
+  "homepage": "https://github.com/nkwork9999/ayatsumugi#readme",
+  "bugs": "https://github.com/nkwork9999/ayatsumugi/issues",
   "engines": {
     "vscode": "^1.90.0",
     "node": ">=20"

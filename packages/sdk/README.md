@@ -1,10 +1,10 @@
-# @ayatsumugi/sdk
+# @noobknotsdev/ayatsumugi-sdk
 
 Public, implementation-neutral helpers for protocol version 1. This package contains no
 analysis engine, React/Fiber traversal, state graph implementation, or private binary.
 
 ```js
-const { instantiateTsumugiWasm, createSnapshotStore } = require('@ayatsumugi/sdk');
+const { instantiateTsumugiWasm, createSnapshotStore } = require('@noobknotsdev/ayatsumugi-sdk');
 
 const response = await fetch('/private-assets/tsumugi-core.wasm');
 const core = await instantiateTsumugiWasm(response);

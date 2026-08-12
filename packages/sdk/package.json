@@ -1,11 +1,15 @@
 {
-  "name": "@ayatsumugi/sdk",
+  "name": "@noobknotsdev/ayatsumugi-sdk",
   "version": "0.1.0",
   "description": "Public protocol helpers for Ayatsumugi clients",
   "license": "Apache-2.0",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "files": ["src", "README.md"],
+  "repository": { "type": "git", "url": "git+https://github.com/nkwork9999/ayatsumugi.git", "directory": "packages/sdk" },
+  "homepage": "https://github.com/nkwork9999/ayatsumugi#readme",
+  "bugs": "https://github.com/nkwork9999/ayatsumugi/issues",
+  "publishConfig": { "access": "public" },
   "scripts": {
     "test": "node --test test/*.test.js"
   },
