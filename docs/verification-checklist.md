@@ -10,7 +10,7 @@ Keep these identifiers stable when recording a release result.
 - [x] **5. Release security** — race/vet, stripped artifacts, path/source rejection,
   checksums, signatures, and bundled-core execution.
 - [x] **6. Commit readiness** — clean diff check, package dry runs, ignored artifact check,
-  and one scoped commit in each repository.
+  and scoped commits in both repositories.
 
 Items 1–5 are automated by the two repositories' test/release scripts. Item 6 remains a
 human-confirmed publication boundary: inspect the staged file list before pushing or
