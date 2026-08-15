@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { createAyatsumugiReact, LABELS } = require('../src');
+const { createAyatsumugiReact, LABELS, safeLabel, laneOf } = require('../src');
 
 function runtime() {
   return { createElement: (type, props, ...children) => ({ type, props: props || {}, children }), useState: value => [value, () => {}], useSyncExternalStore: (_subscribe, get) => get() };
@@ -50,4 +50,22 @@ test('links diagnostics to nodes and renders update, elapsed, and commit metrics
   assert.match(textContent(tree), /9 updates/);
   assert.match(textContent(tree), /elapsed 3200 ms/);
   assert.match(textContent(tree), /10 commits/);
+});
+
+test('restores the three-lane Ayatori weave and hides raw function source', () => {
+  assert.equal(laneOf({ kind: 'HostN' }), 'dom');
+  assert.equal(laneOf({ kind: 'SlotN' }), 'state');
+  assert.equal(laneOf({ kind: 'QueryN' }), 'source');
+  assert.equal(safeLabel({ id: '7', kind: 'ComponentN', label: 'function LabDX(){ return document.body; }' }), 'Component #7');
+
+  const { AyatsumugiExplorer } = createAyatsumugiReact(runtime());
+  const tree = AyatsumugiExplorer({ snapshots: [{ source: 'ayatori', status: 'ready', nodes: [
+    { id: '1', kind: 'HostN', label: 'button' },
+    { id: '2', kind: 'SlotN', label: 'selectedRun', state: 'run-42' },
+    { id: '3', kind: 'QueryN', label: 'experiment query' },
+  ], edges: [{ from: '1', to: '2', kind: 'update' }, { from: '2', to: '3', kind: 'flow' }], diagnostics: [] }] });
+  const nodes = flatten(tree);
+  assert.equal(nodes.filter(node => node.type === 'section' && node.props?.className?.includes('ayatsumugi-lane')).length, 3);
+  assert.equal(nodes.filter(node => node.type === 'path' && node.props?.['data-edge-from']).length, 2);
+  assert.match(textContent(tree), /DOM → state → data source/);
 });
