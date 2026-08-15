@@ -15,6 +15,14 @@ const forbiddenText = [
   /BEGIN (?:RSA |OPENSSH )?PRIVATE KEY/,
   /components\/(?:ayatori|tsumugi)\/src/i,
   /ayatsumugi-core\/components/i,
+  /\/Users\/[^/\s"'`]+\//,
+  /\/home\/[^/\s"'`]+\//,
+  /[A-Za-z]:\\Users\\[^\\\s"'`]+\\/,
+  /~\/Desktop\//,
+  /Documents\/Codex\//,
+  /(?:npm|gh[pousr])_[A-Za-z0-9_-]{20,}/,
+  /(?:VSCE_PAT|AZURE_DEVOPS_EXT_PAT|NPM_TOKEN)\s*[:=]\s*["']?[^\s"']+/,
+  /\/\/registry\.npmjs\.org\/:_authToken\s*=/,
 ];
 const ignored = new Set(['.git', 'node_modules', 'target', 'dist', 'coverage']);
 const failures = [];
