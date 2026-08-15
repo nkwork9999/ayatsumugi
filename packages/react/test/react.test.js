@@ -65,7 +65,7 @@ test('restores the three-lane Ayatori weave and hides raw function source', () =
     { id: '3', kind: 'QueryN', label: 'experiment query' },
   ], edges: [{ from: '1', to: '2', kind: 'update' }, { from: '2', to: '3', kind: 'flow' }], diagnostics: [] }] });
   const nodes = flatten(tree);
-  assert.equal(nodes.filter(node => node.type === 'section' && node.props?.className?.includes('ayatsumugi-lane')).length, 3);
+  assert.equal(nodes.filter(node => node.type === 'div' && node.props?.className?.includes('ayatsumugi-lane ')).length, 3);
   assert.equal(nodes.filter(node => node.type === 'path' && node.props?.['data-edge-from']).length, 2);
-  assert.match(textContent(tree), /DOM → state → data source/);
+  assert.match(textContent(tree), /DOM → Hook → data source/);
 });

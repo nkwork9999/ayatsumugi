@@ -146,4 +146,5 @@ function createAyatsumugiReact(React) {
   return { AyatsumugiExplorer, ConnectedAyatsumugiExplorer, useAyatsumugiSnapshots };
 }
 
-module.exports = { LABELS, createAyatsumugiReact, safeLabel, laneOf };
+export { LABELS, createAyatsumugiReact, safeLabel, laneOf };
+export default { LABELS, createAyatsumugiReact, safeLabel, laneOf };
