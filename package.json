@@ -2,16 +2,19 @@
   "name": "ayatsumugi-workspace",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=20"
   },
   "workspaces": [
     "extensions/vscode",
     "packages/sdk",
-    "packages/react"
+    "packages/react",
+    "packages/terminal"
   ],
   "scripts": {
-    "test": "npm test --workspace extensions/vscode && npm test --workspace packages/sdk && npm test --workspace packages/react && npm run check:zed && node scripts/check-public-boundary.mjs",
+    "test": "npm test --workspace extensions/vscode && npm test --workspace packages/sdk && npm test --workspace packages/react && npm test --workspace packages/terminal && npm run check:integrations && npm run check:zed && node scripts/check-public-boundary.mjs",
+    "check:integrations": "node --test integrations/test/*.test.js",
     "check:zed": "cargo check --locked --manifest-path extensions/zed/Cargo.toml",
     "check:boundary": "node scripts/check-public-boundary.mjs",
     "check": "npm test"

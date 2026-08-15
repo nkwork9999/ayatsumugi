@@ -1,0 +1,32 @@
+id = "nkwork9999.ayatsumugi"
+name = "Ayatsumugi"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Inspect React DOM and application state locally from a Herdr pane."
+platforms = ["linux", "macos", "windows"]
+
+[[actions]]
+id = "doctor"
+title = "Ayatsumugi: Check runtime"
+platforms = ["linux", "macos"]
+command = ["npx", "--yes", "@noobknotsdev/ayatsumugi-terminal", "doctor"]
+
+[[actions]]
+id = "doctor-windows"
+title = "Ayatsumugi: Check runtime"
+platforms = ["windows"]
+command = ["npx.cmd", "--yes", "@noobknotsdev/ayatsumugi-terminal", "doctor"]
+
+[[panes]]
+id = "inspect"
+title = "Ayatsumugi: Inspect"
+placement = "zoomed"
+platforms = ["linux", "macos"]
+command = ["sh", "scripts/inspect.sh"]
+
+[[panes]]
+id = "inspect-windows"
+title = "Ayatsumugi: Inspect"
+placement = "zoomed"
+platforms = ["windows"]
+command = ["powershell", "-NoProfile", "-File", "scripts/inspect.ps1"]

@@ -1,0 +1,16 @@
+{
+  "name": "@noobknotsdev/ayatsumugi-terminal",
+  "version": "0.1.0",
+  "description": "Local-only Ayatsumugi terminal adapter for Ghostty, cmux, Herdr, and Orca",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": { "ayatsumugi": "src/cli.mjs", "ayatsumugi-terminal": "src/cli.mjs" },
+  "exports": "./src/index.mjs",
+  "files": ["src", "README.md"],
+  "repository": { "type": "git", "url": "git+https://github.com/nkwork9999/ayatsumugi.git", "directory": "packages/terminal" },
+  "homepage": "https://github.com/nkwork9999/ayatsumugi#readme",
+  "bugs": "https://github.com/nkwork9999/ayatsumugi/issues",
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}

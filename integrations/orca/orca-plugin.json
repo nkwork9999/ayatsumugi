@@ -1,0 +1,22 @@
+{
+  "manifestVersion": 1,
+  "id": "nkwork9999.ayatsumugi",
+  "publisher": "nkwork9999",
+  "name": "Ayatsumugi",
+  "version": "0.1.0",
+  "description": "Local React DOM and state inspection for Orca worktrees and agent terminals.",
+  "engines": { "orca": ">=1.4.0" },
+  "pluginApi": 1,
+  "main": "main.mjs",
+  "contributes": {
+    "panels": [{ "id": "runtime", "title": "Ayatsumugi", "icon": "activity", "entry": "panel.html" }],
+    "commands": [{ "id": "open", "title": "Ayatsumugi: Open inspector" }],
+    "events": [{ "on": "worktree.created" }, { "on": "agent.status.changed" }]
+  },
+  "capabilities": [
+    { "kind": "workspace:read" },
+    { "kind": "terminal:send" },
+    { "kind": "notifications:show" },
+    { "kind": "events:subscribe" }
+  ]
+}

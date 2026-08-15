@@ -1,0 +1,16 @@
+{
+  "name": "Ayatsumugi Plugins",
+  "owner": "nkwork9999",
+  "plugins": [
+    {
+      "id": "nkwork9999.ayatsumugi",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/nkwork9999/ayatsumugi-orca.git",
+        "ref": "v0.1.0"
+      },
+      "description": "Local React DOM and state inspection for Orca worktrees and agent terminals.",
+      "categories": ["developer-tools", "agents", "visualization"]
+    }
+  ]
+}

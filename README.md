@@ -20,9 +20,10 @@ distributed separately under their own commercial terms.
 private ayatsumugi-core/
   ├─ Ayatori Core ──────┐
   └─ Tsumugi Core ──────┼─ versioned protocol ─ public ayatsumugi/
-                        └─ MCP sidecar          ├─ VS Code
-                                                ├─ Zed
-                                                ├─ SDK
+                        └─ MCP sidecar          ├─ VS Code / Zed
+                                                ├─ Herdr / Orca
+                                                ├─ Ghostty / cmux
+                                                ├─ SDK / terminal CLI
                                                 └─ React adapter
 ```
 
@@ -33,6 +34,8 @@ private ayatsumugi-core/
 - SDK: envelope validation, snapshot store, and the stable Tsumugi Wasm ABI client.
 - React: publishable protocol UI with DOM/state nodes, details, edges, draggable panes,
   and center-only maximization. English is the default; Japanese is selectable.
+- Terminals: one local-only npm CLI for Ghostty, cmux, Herdr, and Orca, plus native
+  Herdr and Orca plugin manifests and panels.
 - Private distribution: one local MCP sidecar, one native Ayatori analyzer, and one
   Tsumugi WasmGC module. No cloud API is required.
 
