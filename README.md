@@ -36,6 +36,10 @@ private ayatsumugi-core/
   and center-only maximization. English is the default; Japanese is selectable.
 - Terminals: one local-only npm CLI for Ghostty, cmux, Herdr, and Orca, plus native
   Herdr and Orca plugin manifests and panels.
+
+Orca installs directly from this repository using the root `orca-plugin.json`; Herdr
+installs from `nkwork9999/ayatsumugi/integrations/herdr`. Platform integrations are
+kept together here rather than split into per-host repositories.
 - Private distribution: one local MCP sidecar, one native Ayatori analyzer, and one
   Tsumugi WasmGC module. No cloud API is required.
 
