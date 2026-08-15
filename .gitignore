@@ -6,5 +6,6 @@ target/
 .env.*
 !.env.example
 dist/
+!packages/observer/dist/
+!packages/observer/dist/install.js
 coverage/
-

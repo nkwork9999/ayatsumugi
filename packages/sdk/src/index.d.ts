@@ -4,6 +4,8 @@ export interface Diagnostic {
   code: string;
   severity: 'info' | 'warning' | 'error';
   message: string;
+  nodeIds?: string[];
+  details?: Record<string, unknown>;
 }
 
 export interface Envelope {

@@ -1,0 +1,17 @@
+{
+  "name": "@noobknotsdev/ayatsumugi-observer",
+  "version": "0.1.0",
+  "description": "Browser runtime observer for local Ayatsumugi analysis",
+  "type": "module",
+  "main": "dist/install.js",
+  "exports": { ".": "./dist/install.js" },
+  "license": "Apache-2.0",
+  "files": ["dist", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkwork9999/ayatsumugi.git",
+    "directory": "packages/observer"
+  },
+  "publishConfig": { "access": "public" },
+  "scripts": { "test": "node --check dist/install.js" }
+}

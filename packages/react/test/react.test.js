@@ -15,6 +15,12 @@ function flatten(node, result = []) {
   return result;
 }
 
+function textContent(node) {
+  if (node == null) return '';
+  if (typeof node !== 'object') return String(node);
+  return (node.children || []).flat(Infinity).map(textContent).join('');
+}
+
 test('renders DOM/state nodes and resize separators', () => {
   const { AyatsumugiExplorer } = createAyatsumugiReact(runtime());
   const tree = AyatsumugiExplorer({ snapshots: [{ protocolVersion: 1, source: 'ayatori', status: 'ready', nodes: [{ id: '1', kind: 'HostN', label: 'button' }], edges: [], diagnostics: [] }] });
@@ -26,4 +32,22 @@ test('renders DOM/state nodes and resize separators', () => {
 test('English defaults and Japanese remains available', () => {
   assert.equal(LABELS.en.graph, 'DOM & State Graph');
   assert.equal(LABELS.ja.graph, 'DOM・ステートグラフ');
+});
+
+test('links diagnostics to nodes and renders update, elapsed, and commit metrics', () => {
+  const { AyatsumugiExplorer } = createAyatsumugiReact(runtime());
+  const tree = AyatsumugiExplorer({ snapshots: [{
+    protocolVersion: 1,
+    source: 'ayatori',
+    status: 'findings',
+    nodes: [{ id: '2', kind: 'SlotN', label: 'useQuery', updateCount: 9, elapsedMs: 3200, commitSpan: 10 }],
+    edges: [],
+    diagnostics: [{ code: 'SC-01', severity: 'warning', message: 'Copied state diverged', nodeIds: ['2'] }],
+  }] });
+  const nodes = flatten(tree);
+  assert.ok(nodes.some(node => node.props?.className?.includes('has-warning')));
+  assert.ok(nodes.some(node => node.props?.className?.includes('severity-warning')));
+  assert.match(textContent(tree), /9 updates/);
+  assert.match(textContent(tree), /elapsed 3200 ms/);
+  assert.match(textContent(tree), /10 commits/);
 });

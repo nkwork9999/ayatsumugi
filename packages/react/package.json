@@ -1,6 +1,6 @@
 {
   "name": "@noobknotsdev/ayatsumugi-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React DOM and state graph visualization for Ayatsumugi envelopes",
   "main": "src/index.js",
   "exports": { ".": "./src/index.js", "./styles.css": "./src/styles.css" },
